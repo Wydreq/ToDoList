@@ -1,0 +1,16 @@
+.button {
+  width: 125px;
+  height: 40px;
+  background: linear-gradient(90deg, #7c4eff 0%, #6db0ff 100%);
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+}
+
+p {
+  display: inline;
+  background: linear-gradient(180deg, #7c4eff 0%, #6db0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

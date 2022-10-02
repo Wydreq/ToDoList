@@ -1,0 +1,260 @@
+.block {
+  width: 55%;
+  float: right;
+  height: 90%;
+  background-color: #ffffff;
+  border-radius: 40px;
+  margin-right: 5%;
+  margin-top: 2vh;
+  text-align: center;
+}
+
+.todo {
+  font-size: 40px;
+  font-weight: 700;
+  display: inline;
+  background: linear-gradient(180deg, #7c4eff 0%, #6db0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+ul {
+  list-style-type: none;
+  margin-right: 5%;
+}
+
+.test {
+  width: 300px;
+  height: 80px;
+  border: double 4px transparent;
+  border-radius: 80px;
+  background-image: linear-gradient(white, white),
+    radial-gradient(circle at top left, #f00, #3020ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.listItem {
+  width: 90%;
+  height: 150px;
+  background-color: #eeeeee;
+  margin-top: 3%;
+  text-align: left;
+  padding-left: 5%;
+  border: 4px solid black;
+  inset: 0;
+  border-radius: 25px;
+  padding: 3px;
+  padding-left: 15px;
+  margin-left: 5%;
+  position: relative;
+
+  border: double 3px transparent;
+  border-radius: 25px;
+  background-image: linear-gradient(
+      rgba(238, 238, 238, 1),
+      rgba(238, 238, 238, 1)
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(109, 176, 255, 1),
+      rgba(124, 78, 255, 1)
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.statusCompleted label {
+  text-decoration: line-through;
+}
+
+.listItemPriority {
+  width: 90%;
+  height: 150px;
+  background-color: #eeeeee;
+  margin-top: 3%;
+  text-align: left;
+  padding-left: 5%;
+  border: 4px solid black;
+  inset: 0;
+  border-radius: 25px;
+  padding: 3px;
+  padding-left: 15px;
+  margin-left: 5%;
+  position: relative;
+
+  border: double 3px transparent;
+  border-radius: 25px;
+  background-image: linear-gradient(
+      rgba(238, 238, 238, 1),
+      rgba(238, 238, 238, 1)
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 66, 54, 1),
+      rgba(109, 176, 255, 1),
+      rgba(124, 78, 255, 1)
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.title {
+  font-size: 32px;
+  font-style: medium;
+  font-weight: 500;
+  float: left;
+}
+
+.titleCompleted {
+  font-size: 32px;
+  font-style: medium;
+  font-weight: 500;
+  float: left;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.priorityStatus {
+  float: left;
+  margin-left: 8px;
+  margin-top: 8px;
+  font-size: 22px;
+}
+
+.priorityStatusCompleted {
+  float: left;
+  margin-left: 8px;
+  margin-top: 8px;
+  font-size: 22px;
+  opacity: 0.3;
+}
+
+.priorityStatus i {
+  color: red;
+}
+
+.description {
+  position: absolute;
+  font-size: 20px;
+  color: rgba(167, 167, 167, 1);
+  font-weight: 400;
+  padding-top: 20px;
+  line-height: 25px;
+  top: 20%;
+  left: 15px;
+}
+
+.descriptionCompleted {
+  position: absolute;
+  font-size: 20px;
+  color: rgba(167, 167, 167, 1);
+  font-weight: 400;
+  padding-top: 20px;
+  line-height: 25px;
+  top: 20%;
+  left: 15px;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.date {
+  position: absolute;
+  margin-top: 10px;
+  line-height: 35px;
+  color: rgba(52, 52, 52, 1);
+  font-weight: 400;
+  top: 65%;
+  font-size: 18px;
+  left: 15px;
+}
+
+.dateCompleted {
+  position: absolute;
+  margin-top: 10px;
+  line-height: 35px;
+  color: rgba(52, 52, 52, 1);
+  font-weight: 400;
+  top: 65%;
+  font-size: 18px;
+  left: 15px;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.smallButton {
+  float: right;
+  margin-right: 2%;
+  margin-top: 1%;
+  border: none;
+  background-color: #d9d9d9;
+  border-radius: 25px;
+  position: absolute;
+  right: 1%;
+  cursor: pointer;
+}
+
+.smallButton:hover {
+  color: white;
+}
+
+.circle {
+  width: 5%;
+  height: 28%;
+  background-color: #ffffff;
+  float: right;
+  border-radius: 25px;
+  position: absolute;
+  top: 36%;
+  right: 8%;
+  cursor: pointer;
+}
+
+.completeStatus {
+  position: absolute;
+  top: 20%;
+  right: 7%;
+  font-size: 70px;
+}
+
+.completeStatus i {
+  color: #6be657;
+}
+
+.unCompleteStatus {
+  position: absolute;
+  top: 20%;
+  right: 7%;
+  font-size: 70px;
+  display: none;
+}
+
+/* Sorting style */
+
+.sortingDiv {
+  margin-left: 70%;
+  font-size: 20px;
+}
+
+.sortingDiv p {
+  color: rgba(52, 52, 52, 1);
+  display: inline;
+}
+
+.sortingDiv button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  width: 100px;
+}
+
+.sortingDiv button i {
+  color: black;
+  font-size: 15px;
+}
+
+.sortingDiv button:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(52, 52, 52, 1);
+  caret-color: transparent;
+}
+
+html {
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #eeeeee;
+  height: 300vh;
+}
+
+body {
+  margin: 0;
+}

@@ -1,0 +1,18 @@
+.dateCard {
+  width: 50%;
+  height: 40px;
+  margin-top: 2%;
+  float: left;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.date {
+  border: none;
+  margin-top: 3%;
+  font-size: 20px;
+  width: 90%;
+  background-color: transparent;
+  cursor: pointer;
+}
