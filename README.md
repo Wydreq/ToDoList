@@ -50,7 +50,7 @@ Before sorting
 After sorting by date ↑
 ![App Screenshot](https://i.postimg.cc/k48QpPMs/sorting-by-date-up.png)
 
-Adter sorting by date ↓
+After sorting by date ↓
 ![App Screenshot](https://i.postimg.cc/gjWV9tnW/sorting-by-date-down.png)
 ## Authors
 
