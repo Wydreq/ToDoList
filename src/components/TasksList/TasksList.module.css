@@ -201,8 +201,8 @@ ul {
 }
 
 .circle {
-  width: 5%;
-  height: 28%;
+  width: 50px;
+  height: 50px;
   background-color: #ffffff;
   float: right;
   border-radius: 25px;

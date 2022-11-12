@@ -5,45 +5,19 @@ import TodayTasks from "./components/TodayTasks/TodayTasks";
 
 function App() {
   const [tasksList, setTasksList] = useState([]);
+  const [restart, setRestart] = useState(false);
 
-  const addTaskHandler = (
-    title,
-    description,
-    date,
-    isPriority,
-    isCompleted
-  ) => {
-    const current = new Date();
-
-    let curDate = `${current.getFullYear()}-${
-      current.getMonth() + 1
-    }-0${current.getDate()}`;
-
-    // console.log(title, description, date);
-    if (description.trim().length === 0) {
-      description = "No description";
-    }
-
-    setTasksList((prevTasksList) => {
-      return [
-        ...prevTasksList,
-        {
-          title,
-          description,
-          date,
-          isPriority,
-          isCompleted,
-          id: Math.random().toString(),
-        },
-      ];
-    });
-    // console.log(tasksList);
-  };
-
-  const deleteTaskHandler = (key) => {
-    const updatedTasksList = tasksList.filter((current) => current.id !== key);
-    setTasksList(updatedTasksList);
-  };
+  async function deleteTaskHandler(key) {
+    console.log(key);
+    let response = await fetch(
+      `https://todolist-4ab03-default-rtdb.firebaseio.com/tasks/${key}.json`,
+      {
+        method: "DELETE",
+      }
+    );
+    await response.json();
+    setRestart(!restart);
+  }
 
   const changeTaskStatusHandler = (key) => {
     const updatedTasksList = tasksList.map((current) => {
@@ -75,7 +49,7 @@ function App() {
 
   return (
     <div>
-      <AddTask onAddTask={addTaskHandler} />
+      <AddTask />
       <TasksList
         tasks={tasksList}
         onDeleteTask={deleteTaskHandler}

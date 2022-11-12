@@ -9,25 +9,48 @@ const AddTask = (props) => {
   const [enteredDate, setEnteredDate] = useState("");
   const [isPriority, setIsPriority] = useState(false);
   const isCompleted = false;
+  const [isLoading, setIsLoading] = useState(false);
 
-  const addTaskHandler = (event) => {
+  async function addTaskHandler(event) {
     event.preventDefault();
+    setIsLoading(true);
 
     if (enteredTitle.trim().length === 0 || enteredDate.trim().length === 0) {
       return;
     }
 
-    // console.log(enteredTitle, enteredDescription, enteredDate);
-    props.onAddTask(
+    const task = {
+      id: Math.random().toString(),
       enteredTitle,
       enteredDescription,
       enteredDate,
       isPriority,
-      isCompleted
+      isCompleted,
+    };
+
+    let response = await fetch(
+      "https://todolist-4ab03-default-rtdb.firebaseio.com/tasks.json",
+      {
+        method: "POST",
+        body: JSON.stringify(task),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
     );
+
+    if (!response.ok) {
+      throw new Error("Something went wrong");
+    }
+
+    const data = await response.json();
+
+    console.log(data);
+
     setEnteredTitle("");
     setEnteredDescription("");
-  };
+    setIsLoading(false);
+  }
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -71,7 +94,7 @@ const AddTask = (props) => {
           <Prioritize onClick={priorityHandler} />
         </div>
         <button type="submit" className={classes.button}>
-          Add
+          {!isLoading ? "Add" : "Adding..."}
         </button>
       </form>
     </div>

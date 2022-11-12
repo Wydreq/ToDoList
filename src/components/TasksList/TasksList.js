@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classes from "./TasksList.module.css";
 
 const TasksList = (props) => {
   const [isSortingUp, setIsSortingUp] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [tasksList, setTasksList] = useState([]);
 
   const sortingChangeHandler = () => {
     if (!isSortingUp) {
@@ -13,6 +15,39 @@ const TasksList = (props) => {
       props.onSortingTasks(isSortingUp);
     }
   };
+
+  async function fetchTasks() {
+    setIsLoading(true);
+    let response = await fetch(
+      "https://todolist-4ab03-default-rtdb.firebaseio.com/tasks.json"
+    );
+    if (!response.ok) {
+      throw new Error("Something went wrong");
+    }
+
+    const data = await response.json();
+
+    const loadedTasks = [];
+
+    for (const key in data) {
+      loadedTasks.push({
+        id: key,
+        enteredTitle: data[key].enteredTitle,
+        enteredDescription: data[key].enteredDescription,
+        enteredDate: data[key].enteredDate,
+        isPriority: data[key].isPriority,
+        isCompleted: data[key].isCompleted,
+      });
+    }
+
+    setTasksList(loadedTasks);
+
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    fetchTasks();
+  }, []);
 
   return (
     <div className={classes.block}>
@@ -29,9 +64,10 @@ const TasksList = (props) => {
           Date<i class="fa-solid fa-arrow-down"></i>
         </button> */}
       </div>
-
+      {isLoading && <p>Loading tasks...</p>}
+      {tasksList.length === 0 && !isLoading && <p>Tasks not found!</p>}
       <ul>
-        {props.tasks.map((task) => (
+        {tasksList.map((task) => (
           <div
             key={task.id}
             className={
@@ -73,7 +109,7 @@ const TasksList = (props) => {
                   : classes.titleCompleted
               }
             >
-              {task.title}
+              {task.enteredTitle}
             </label>
             <label
               className={
@@ -96,7 +132,7 @@ const TasksList = (props) => {
                   : classes.descriptionCompleted
               }
             >
-              {task.description}
+              {task.enteredDescription}
             </label>
             <br></br>
             <label
@@ -106,7 +142,7 @@ const TasksList = (props) => {
                   : classes.dateCompleted
               }
             >
-              {task.date}
+              {task.enteredDate}
             </label>
           </div>
         ))}
